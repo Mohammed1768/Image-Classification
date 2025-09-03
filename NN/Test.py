@@ -22,7 +22,7 @@ labels = {
 }
 
 testing_set = datasets.FashionMNIST(
-    root = "data",
+    root="data",
     train=1,
     download=1,
     transform=ToTensor()
