@@ -5,7 +5,7 @@ from torchvision import datasets
 from torchvision.transforms import ToTensor
 
 model = NeuralNet()
-model.load_state_dict(torch.load("fashion_model.pth", map_location="cpu"))
+model.load_state_dict(torch.load("NN\\fashion_model.pth", map_location="cpu"))
 model.eval()
 
 labels = {
@@ -29,10 +29,10 @@ testing_set = datasets.FashionMNIST(
 )
 
 k = torch.randint(low=0, high=10000, size=(1,)).item()
-for num in range(18):
+for num in range(12):
     img,label = testing_set[k + num]
 
-    plt.subplot(3,6, 1+num)
+    plt.subplot(2,6, 1+num)
     plt.imshow(img.squeeze(), cmap="gray")
     plt.title(f"Prediction={labels[model.forward(img.unsqueeze(0)).argmax(1).item()]}\n Actual={labels[label]}")
     plt.axis(False)
