@@ -38,3 +38,26 @@ Linear(64*7*7 → 128) + ReLU
 Linear(128 → 10) + Softmax
 
 Achieved accuracy: ~ 90.34%
+
+
+3. Mini-AlexNet for Fashion-MNIST
+
+Input: 1×28×28 grayscale image
+
+Architecture:
+
+Conv Block 1: Conv2D(1 → 64, kernel=3, stride=1, padding=1) → BatchNorm → ReLU → MaxPool(2×2)
+Conv Block 2: Conv2D(64 → 128, kernel=3, stride=1, padding=1) → BatchNorm → ReLU → MaxPool(2×2)
+Conv Block 3: Conv2D(128 → 256, kernel=3, stride=1, padding=1) → BatchNorm → ReLU → MaxPool(2×2)
+
+Flatten: 256 × 3 × 3 → vector
+Fully Connected 1: 256×3×3 → 512 → ReLU → Dropout(0.5)
+Fully Connected 2: 512 → 10 → logits (for CrossEntropyLoss)
+
+Notes:
+
+Pooling: Each MaxPool halves spatial dimensions: 28 → 14 → 7 → 3
+BatchNorm: Stabilizes training and speeds up convergence
+Dropout: 50% probability to reduce overfitting
+
+Achieved accuracy: ~ 91.55%

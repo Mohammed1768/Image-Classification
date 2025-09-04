@@ -47,5 +47,5 @@ for num in range(12):
     plt.imshow(img.squeeze(), cmap="gray")
     plt.title(f"Prediction={labels[model.forward(img.unsqueeze(0)).argmax(1).item()]}\n Actual={labels[label]}")
     plt.axis(False)
-accuracy(model, testing_set)
+# accuracy(model, testing_set)
 plt.show()
