@@ -37,4 +37,4 @@ Flatten
 Linear(64*7*7 → 128) + ReLU
 Linear(128 → 10) + Softmax
 
-Achieved accuracy: ~ YY%
+Achieved accuracy: ~ 90.34%
