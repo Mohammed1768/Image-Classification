@@ -13,9 +13,9 @@ training_set = FashionMNIST(
 
 model = CNN()
 
-learning_rate = 0.005
+learning_rate = 0.03
 
-epochs = 10
+epochs = 20
 batch_size = 64
 
 loss_fn = torch.nn.CrossEntropyLoss()
@@ -40,4 +40,3 @@ for epoch in range(1, 1+epochs):
 
 
 torch.save(model.state_dict(), "fashion_model.pth")
-print("Saved")
